@@ -75,7 +75,6 @@ resampy==0.2.2
 rfc3986==1.5.0
 scikit-image==0.18.1
 simplegeneric==0.8.1
-sip==4.19.13
 SpeechRecognition==3.8.1
 statsmodels==0.12.2
 tables==3.6.1
