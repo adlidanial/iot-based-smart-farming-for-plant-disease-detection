@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="#">IoT Smart Farming</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact-us">Contact Us</a></li>
+                {% if session['id'] == '' %}
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                {% else %}
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="true" data-bs-toggle="dropdown" href="#">{{ session['fullname'] }}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Live Chat</a>
+                        <a class="dropdown-item" href="#">Log History</a>
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="/logout">Log Out</a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

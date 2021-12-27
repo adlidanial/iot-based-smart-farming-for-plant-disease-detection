@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register - IoT Smart Farming</title>
+    {% include './includes/header.html' %}
+</head>
+
+<body>
+    {% include './includes/navbar.html' %}
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading" style="padding-top: 40px;">
+                    <h2 class="text-dark">Sign Up</h2>
+                </div>
+                <form method="post">
+                    <div class="mb-3"><label class="form-label" for="email">Name</label><input class="form-control" type="text" name="name"></div>
+                    <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control item" type="email" id="email-2" placeholder="example@test.com" name="email"></div>
+                    <div class="mb-3"><label class="form-label" for="password">Username</label><input class="form-control" type="text" name="username"></div>
+                    <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password-3" name="password"></div>
+                    <div class="mb-3"><label class="form-label" for="password">Re-type Password</label><input class="form-control" type="password" id="password-2" name="repassword"></div><button class="btn btn-success border rounded-pill btn-block" type="submit" style="width: 100%;">Sign Up</button>
+                    <hr>
+                    <p style="text-align: center;">Existing an account?&nbsp;<a href="/login">Log In</a></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark" style="padding-top: 0px;">
+        <div class="footer-copyright" style="margin-top: 0px;">
+            <p>© 2021 IoT Smart Farming</p>
+        </div>
+    </footer>
+    {% include './includes/footer.html' %}
+</body>
+
+</html>
