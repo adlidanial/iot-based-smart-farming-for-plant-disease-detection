@@ -1,1 +1,1 @@
-# iot-based-smart-farming-for-plant-disease-detection
+# IoT Based Smart Farming for Plant Disease Detection
