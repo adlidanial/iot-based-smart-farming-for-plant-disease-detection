@@ -4,10 +4,10 @@ from . import routes
 
 app = Flask(__name__)
 
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'admin'
-app.config['MYSQL_DATABASE_DB'] = 'plant_disease_detection'
+app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-05.cleardb.net'
+app.config['MYSQL_DATABASE_USER'] = 'b1646d0d089bab'
+app.config['MYSQL_DATABASE_PASSWORD'] = '94ed5161'
+app.config['MYSQL_DATABASE_DB'] = 'heroku_bd37171be9fe3d6'
 
 
 mysql = MySQL(app)
