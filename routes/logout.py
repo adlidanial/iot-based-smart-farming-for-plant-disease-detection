@@ -4,8 +4,9 @@ from . import routes
 class Logout:
     @routes.route('/logout')
     def logout():
-        session['id'] = ''
-        session['fullname'] = ''
-        session['username'] = ''
+        session.pop('id', None)
+        session.pop('fullname', None)
+        session.pop('username', None)
+        session.pop('roles', None)
 
         return redirect(url_for('index'))

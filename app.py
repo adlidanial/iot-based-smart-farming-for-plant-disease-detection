@@ -5,12 +5,13 @@ from flaskext.mysql import MySQL
 app = Flask(__name__)
 app.register_blueprint(routes)
 app.secret_key = '_5#y2L"F4Q8z]/'
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'admin'
-app.config['MYSQL_DB'] = 'plant_disease_detection'
+app.config['MYSQL_HOST'] = 'us-cdbr-east-05.cleardb.net'
+app.config['MYSQL_USER'] = 'b1646d0d089bab'
+app.config['MYSQL_PASSWORD'] = '94ed5161'
+app.config['MYSQL_DB'] = 'heroku_bd37171be9fe3d6'
 
 mysql = MySQL(app)
+
 
 @app.route("/")
 def index():

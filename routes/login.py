@@ -58,6 +58,7 @@ class Login:
                     session['id'] = row[0]
                     session['fullname'] = row[1]
                     session['username'] = row[3]
+                    session['roles'] = result
                 errmsg = False
                 return redirect(url_for('index'))
             else:

@@ -17,11 +17,30 @@
                     <h2 class="text-dark">Sign Up</h2>
                 </div>
                 <form method="post">
-                    <div class="mb-3"><label class="form-label" for="email">Name</label><input class="form-control" type="text" name="name"></div>
-                    <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control item" type="email" id="email-2" placeholder="example@test.com" name="email"></div>
-                    <div class="mb-3"><label class="form-label" for="password">Username</label><input class="form-control" type="text" name="username"></div>
-                    <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password-3" name="password"></div>
-                    <div class="mb-3"><label class="form-label" for="password">Re-type Password</label><input class="form-control" type="password" id="password-2" name="repassword"></div><button class="btn btn-success border rounded-pill btn-block" type="submit" style="width: 100%;">Sign Up</button>
+                    {% if msgPassword %} <div class="alert alert-danger" role="alert"><span><strong>* </strong>Password must be a same!</span></div> {% endif %}
+                    {% if msgErr %} <div class="alert alert-danger" role="alert"><span><strong>* </strong>Email or username already used!</span></div> {% endif %}
+                    {% if msgSuccess %} <div class="alert alert-success" role="alert"><span><strong>* </strong>Register success. Please login.</span></div> {% endif %}
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input class="form-control" type="text" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control item" type="email" id="email-2" placeholder="example@test.com" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control" type="text" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="password" id="password-3" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Re-type Password</label>
+                        <input class="form-control" type="password" id="password-2" name="repassword">
+                    </div>
+                    <button class="btn btn-success border rounded-pill btn-block" type="submit" style="width: 100%;">Sign Up</button>
                     <hr>
                     <p style="text-align: center;">Existing an account?&nbsp;<a href="/login">Log In</a></p>
                 </form>
