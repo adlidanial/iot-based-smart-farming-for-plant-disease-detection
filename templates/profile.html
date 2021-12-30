@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Profile - IoT Smart Farming</title>
+    {% include './includes/header.html' %}
+</head>
+
+<body>
+    {% include './includes/navbar.html' %}
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading" style="padding-top: 40px;">
+                    <h2>Profile</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Edit Profile</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="shadow-none" style="margin: 0px;padding: 20px;">
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3"><label class="col-form-label">Name</label></div>
+                                        <div class="col"><input class="form-control" type="text"></div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3"><label class="col-form-label">Email</label></div>
+                                        <div class="col"><input class="form-control" type="email"></div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3"><label class="col-form-label">Username</label></div>
+                                        <div class="col"><input class="form-control" type="text"></div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3"><label class="col-form-label"></label></div>
+                                        <div class="col d-grid"><button class="btn btn-secondary" type="submit">Update</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Change Password</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="shadow-none" style="padding: 20px;margin: 0px;">
+                                    <div class="row">
+                                        <div class="col-md-5 col-lg-5 col-xl-5 col-xxl-5"><label class="col-form-label">New Password</label></div>
+                                        <div class="col"><input class="form-control" type="password"></div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-5 col-lg-5 col-xl-5 col-xxl-5"><label class="col-form-label">Re-type Password</label></div>
+                                        <div class="col"><input class="form-control" type="password"></div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-5 col-lg-5 col-xl-5 col-xxl-5"><label class="col-form-label"></label></div>
+                                        <div class="col d-grid"><button class="btn btn-secondary" type="submit">Update</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark" style="padding-top: 0px;">
+        <div class="footer-copyright" style="margin-top: 0px;">
+            <p>© 2021 IoT Smart Farming</p>
+        </div>
+    </footer>
+    {% include './includes/footer.html' %}
+</body>
+
+</html>

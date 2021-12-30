@@ -1,7 +1,6 @@
 from flask import (render_template, session)
 from . import routes
 
-
 class Home: 
 
     @routes.route('/')

@@ -1,13 +1,15 @@
 from flask import (render_template, Flask, request, redirect, url_for, session)
 from flaskext.mysql import MySQL
 from . import routes
+from routes.connect import HOST, USER, PASSWORD, DB
+
 
 app = Flask(__name__)
 
-app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-05.cleardb.net'
-app.config['MYSQL_DATABASE_USER'] = 'b1646d0d089bab'
-app.config['MYSQL_DATABASE_PASSWORD'] = '94ed5161'
-app.config['MYSQL_DATABASE_DB'] = 'heroku_bd37171be9fe3d6'
+app.config['MYSQL_DATABASE_HOST'] = HOST
+app.config['MYSQL_DATABASE_USER'] = USER
+app.config['MYSQL_DATABASE_PASSWORD'] = PASSWORD
+app.config['MYSQL_DATABASE_DB'] = DB
 
 
 mysql = MySQL(app)
@@ -28,6 +30,8 @@ class Login:
 
         cursor.execute('SELECT * FROM expertadvisor WHERE USERNAME = %s AND PASSWORD = %s', (self.__username, self.__password))
         expadv = cursor.fetchall()
+
+        print(admin)
 
         if farmer:
             result = 1
@@ -60,7 +64,10 @@ class Login:
                     session['username'] = row[3]
                     session['roles'] = result
                 errmsg = False
-                return redirect(url_for('index'))
+                if result == 2:
+                    return redirect(url_for('.dashboard'))
+                else:
+                    return redirect(url_for('.index'))
             else:
                 errmsg = True
 

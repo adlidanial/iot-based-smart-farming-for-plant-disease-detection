@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - IoT Smart Farming</title>
+    {% include './includes/header.html' %}
+</head>
+
+<body>
+    {% include './includes/navbar-admin.html' %}
+    <main class="page">
+        <section class="clean-block about-us">
+            <div class="container">
+                <div class="block-heading" style="padding-top: 40px;">
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="card bg-dark">
+                    <div class="card-body"><canvas id="barChart" height="90"></canvas></div>
+                </div><br />
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h5 class="mb-0">Recent activities</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Cell 1</td>
+                                                <td>Cell 2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cell 3</td>
+                                                <td>Cell 4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cell 1</td>
+                                                <td>Cell 2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cell 1</td>
+                                                <td>Cell 2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"><canvas id="lineChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark" style="padding-top: 0px;">
+        <div class="footer-copyright" style="margin-top: 0px;">
+            <p>© 2021 IoT Smart Farming</p>
+        </div>
+    </footer>
+    {% include './includes/footer.html' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        let barChart = document.getElementById('barChart').getContext('2d');
+
+        let massBarChart = new Chart(barChart, {
+            type: 'bar',
+            data:{
+                labels:['Brown Spot', 'Bacteria Leaf', 'Yellow Spot'],
+                datasets:[{
+                    label: 'Frequency',
+                    data:[
+                        10, 
+                        3, 
+                        5
+                    ],
+                    backgroundColor:[
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 62, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                    ]
+                }]
+            },
+            options:{}
+        });
+
+        let lineChart = document.getElementById('lineChart').getContext('2d');
+
+        let massLineChart = new Chart(lineChart, {
+            type: 'line',
+            data:{
+                labels:['Brown Spot', 'Bacteria Leaf', 'Yellow Spot'],
+                datasets:[{
+                    label: 'Frequency',
+                    data:[
+                        10, 
+                        3, 
+                        5
+                    ],
+                    backgroundColor:[
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 62, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                    ]
+                }]
+            },
+            options:{}
+        });
+    </script>
+</body>
+
+</html>
