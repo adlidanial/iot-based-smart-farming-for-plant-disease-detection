@@ -20,7 +20,6 @@ class Login:
         self.__password = password
     
     def verifyLogin(self):
-        resultList = []
         cursor = mysql.get_db().cursor()
         cursor.execute('SELECT * FROM farmer WHERE USERNAME = %s AND PASSWORD = %s', (self.__username, self.__password))
         farmer = cursor.fetchall()
@@ -30,8 +29,6 @@ class Login:
 
         cursor.execute('SELECT * FROM expertadvisor WHERE USERNAME = %s AND PASSWORD = %s', (self.__username, self.__password))
         expadv = cursor.fetchall()
-
-        print(admin)
 
         if farmer:
             result = 1

@@ -19,13 +19,12 @@
                 <div class="block-content">
                     <div class="clean-blog-post">
                         <div class="row">
-                            <div class="col-lg-5 col-xxl-4"><img class="rounded img-fluid" src="static/img/plant-disease.jpg" width="400"></div>
-                            <div class="col-lg-7 col-xxl-4 offset-xxl-0">
+                            <div class="col-xxl-6"><video autoplay width="500"></video></div>
+                            <div class="col-xxl-6 offset-xxl-0">
                                 <h3>Lorem Ipsum dolor sit amet</h3>
                                 <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                                 <div class="d-grid"><a class="btn btn-secondary btn-sm" role="button" href="/result">Capture</a></div>
                             </div>
-                            <div class="col-lg-5 col-xxl-4 offset-xxl-0"><img class="rounded img-fluid" src="static/img/plant-disease.jpg" width="400"></div>
                         </div>
                     </div>
                 </div>
@@ -38,6 +37,17 @@
         </div>
     </footer>
     {% include './includes/footer.html' %}
+    <script>
+        const constraints = {
+          video: true,
+        };
+        
+        const video = document.querySelector("video");
+        
+        navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+          video.srcObject = stream;
+        });
+        </script>
 </body>
 
 </html>

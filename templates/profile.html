@@ -16,6 +16,8 @@
                 <div class="block-heading" style="padding-top: 40px;">
                     <h2>Profile</h2>
                 </div>
+                {% if failPassProfile %} <div class="alert alert-danger" role="alert"><span><strong>* </strong>Password must be similar. Please re-enter it.</span></div> {% endif %}
+                {% if successProfile %} <div class="alert alert-success" role="alert"><span><strong>* </strong>Update profile success</span></div> {% endif %}
                 <div class="row">
                     <div class="col-sm-12 col-lg-6 col-xl-6 col-xxl-6">
                         <div class="card">
@@ -23,22 +25,22 @@
                                 <h5 class="mb-0">Edit Profile</h5>
                             </div>
                             <div class="card-body">
-                                <form class="shadow-none" style="margin: 0px;padding: 20px;">
+                                <form class="shadow-none" style="margin: 0px;padding: 20px;" method="post">
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3"><label class="col-form-label">Name</label></div>
-                                        <div class="col"><input class="form-control" type="text"></div>
+                                        <div class="col"><input class="form-control" type="text" name="fullname" value="{{ name }}"></div>
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3"><label class="col-form-label">Email</label></div>
-                                        <div class="col"><input class="form-control" type="email"></div>
+                                        <div class="col"><input class="form-control" type="email" name="email" value="{{ email }}"></div>
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3"><label class="col-form-label">Username</label></div>
-                                        <div class="col"><input class="form-control" type="text"></div>
+                                        <div class="col"><input class="form-control" type="text" name="username" value="{{ username }}"></div>
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3"><label class="col-form-label"></label></div>
-                                        <div class="col d-grid"><button class="btn btn-secondary" type="submit">Update</button></div>
+                                        <div class="col d-grid"><button class="btn btn-secondary" type="submit" name="btnSubmit" value="profile">Update</button></div>
                                     </div>
                                 </form>
                             </div>
@@ -50,18 +52,18 @@
                                 <h5 class="mb-0">Change Password</h5>
                             </div>
                             <div class="card-body">
-                                <form class="shadow-none" style="padding: 20px;margin: 0px;">
+                                <form class="shadow-none" style="padding: 20px;margin: 0px;" method="post">
                                     <div class="row">
                                         <div class="col-md-5 col-lg-5 col-xl-5 col-xxl-5"><label class="col-form-label">New Password</label></div>
-                                        <div class="col"><input class="form-control" type="password"></div>
+                                        <div class="col"><input class="form-control" type="password" name="pass"></div>
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-5 col-lg-5 col-xl-5 col-xxl-5"><label class="col-form-label">Re-type Password</label></div>
-                                        <div class="col"><input class="form-control" type="password"></div>
+                                        <div class="col"><input class="form-control" type="password" name="repass"></div>
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-5 col-lg-5 col-xl-5 col-xxl-5"><label class="col-form-label"></label></div>
-                                        <div class="col d-grid"><button class="btn btn-secondary" type="submit">Update</button></div>
+                                        <div class="col d-grid"><button class="btn btn-secondary" type="submit" name="btnSubmit" value="pass">Update</button></div>
                                     </div>
                                 </form>
                             </div>
