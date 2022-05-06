@@ -57,7 +57,10 @@ class Login:
             if result != 0:
                 for row in data:
                     session['id'] = row[0]
-                    session['fullname'] = row[1]
+                    if result == 3:
+                        session['fullname'] = row[2]
+                    else:
+                        session['fullname'] = row[1]
                     session['username'] = row[3]
                     session['roles'] = result
                 errmsg = False

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Log History - IoT Smart Farming</title>
+    <title>List Farmer - IoT Smart Farming</title>
     {% include './includes/header.html' %}
     <link rel="stylesheet" href="../static/css/Bootstrap-DataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
@@ -12,15 +12,16 @@
   </head>
 
 <body>
-    {% include './includes/navbar.html' %}
+    {% include './includes/navbar-admin.html' %}
     <main class="page blog-post-list">
         <section class="clean-block clean-blog-list dark">
             <div class="container">
                 <div class="block-heading" style="padding-top: 40px;">
-                    <h2>Log History</h2><div class="bootstrap_datatables">
+                    <h2>List Farmer</h2><div class="bootstrap_datatables">
                       <div class="container">
                         <div class="row">
                           <div class="col-lg-10 mx-auto">
+                            {% if msgSuccess %} <div class="alert alert-success" role="alert"><span><strong>* </strong>Update farmer success.</span></div> {% endif %}
                             <div class="card rounded shadow border-0">
                               <div class="card-body p-5 bg-white rounded">
                                 <div class="table-responsive">
@@ -28,8 +29,8 @@
                                     <thead>
                                       <tr>
                                         <th>No.</th>
-                                        <th>Disease Name</th>
-                                        <th>Picture</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
                                         <th></th>
                                       </tr>
                                     </thead>
@@ -37,9 +38,12 @@
                                       {% for row in data: %}
                                       <tr>
                                         <td>{{ loop.index }}</td>
-                                        <td>{{ row[6] }}</td>
-                                        <td>{{ row[3] }}</td>
-                                        <td></td>
+                                        <td>{{ row[1] }}</td>
+                                        <td>{{ row[2] }}</td>
+                                        <td>
+                                          <a class="btn btn-secondary" href="./listfarmer/edit/{{ row[0] }}">Edit</a>
+                                          <a class="btn btn-danger" href="./listfarmer/delete/{{ row[0] }}">Delete</a>
+                                        </td>
                                       </tr>
                                       {% endfor %}
                                     </tbody>

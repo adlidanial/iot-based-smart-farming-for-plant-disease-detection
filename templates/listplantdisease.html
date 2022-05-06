@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Log History - IoT Smart Farming</title>
+    <title>List Plant Disease - IoT Smart Farming</title>
     {% include './includes/header.html' %}
     <link rel="stylesheet" href="../static/css/Bootstrap-DataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
@@ -12,34 +12,38 @@
   </head>
 
 <body>
-    {% include './includes/navbar.html' %}
+    {% include './includes/navbar-admin.html' %}
     <main class="page blog-post-list">
         <section class="clean-block clean-blog-list dark">
             <div class="container">
                 <div class="block-heading" style="padding-top: 40px;">
-                    <h2>Log History</h2><div class="bootstrap_datatables">
+                    <h2>List Plant Disease</h2><div class="bootstrap_datatables">
                       <div class="container">
                         <div class="row">
                           <div class="col-lg-10 mx-auto">
                             <div class="card rounded shadow border-0">
                               <div class="card-body p-5 bg-white rounded">
+                                <a class="btn btn-secondary btn-block d-grid" href="#">Generate Report</a>
+                                <br>
                                 <div class="table-responsive">
                                   <table id="dtBasicExample" class="table table-striped table-bordered" width="100%">
                                     <thead>
                                       <tr>
                                         <th>No.</th>
-                                        <th>Disease Name</th>
-                                        <th>Picture</th>
-                                        <th></th>
+                                        <th>Plant Disease</th>
+                                        <th>Symptom Disease</th>
+                                        <th>Prevent Disease</th>
+                                        <th>Date</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       {% for row in data: %}
                                       <tr>
                                         <td>{{ loop.index }}</td>
-                                        <td>{{ row[6] }}</td>
+                                        <td>{{ row[0] }}</td>
+                                        <td>{{ row[1] }}</td>
+                                        <td>{{ row[2] }}</td>
                                         <td>{{ row[3] }}</td>
-                                        <td></td>
                                       </tr>
                                       {% endfor %}
                                     </tbody>

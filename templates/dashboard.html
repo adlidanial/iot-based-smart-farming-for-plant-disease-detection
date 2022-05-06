@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - IoT Smart Farming</title>
     {% include './includes/header.html' %}
+    <link rel="stylesheet" href="../static/css/Bootstrap-DataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -20,32 +23,32 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Title</h4>
-                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <h4 class="card-title text-center">User's Login</h4>
+                                <p class="card-text display-4 text-center">{{ userlogin }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Title</h4>
-                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <h4 class="card-title text-center">User's Active</h4>
+                                <p class="card-text display-4 text-center">{{ userlogin }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Title</h4>
-                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <h4 class="card-title text-center">Plant Disease Capture</h4>
+                                <p class="card-text display-4 text-center">{{ plantdisease }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Title</h4>
-                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <h4 class="card-title text-center">Expert Advisor</h4>
+                                <p class="card-text display-4 text-center">{{ expadv }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,24 +64,22 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="dtBasicExample" class="table table-striped table-bordered" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <td>No.</td>
+                                                <td>Plant Disease</td>
+                                                <td>Date</td>
+                                            </tr>
+                                        </thead>
                                         <tbody>
+                                            {% for row in plant: %}
                                             <tr>
-                                                <td>Cell 1</td>
-                                                <td>Cell 2</td>
+                                                <td>{{ loop.index }}</td>
+                                                <td>{{ row[0] }}</td>
+                                                <td>{{ row[1] }}</td>
                                             </tr>
-                                            <tr>
-                                                <td>Cell 3</td>
-                                                <td>Cell 4</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cell 1</td>
-                                                <td>Cell 2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cell 1</td>
-                                                <td>Cell 2</td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
@@ -97,6 +98,9 @@
     </footer>
     {% include './includes/footer.html' %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script>
         let barChart = document.getElementById('barChart').getContext('2d');
 
@@ -144,6 +148,13 @@
             options:{}
         });
     </script>
+
+<script>
+    $(document).ready(function () {
+$('#dtBasicExample').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+  </script>
 </body>
 
 </html>

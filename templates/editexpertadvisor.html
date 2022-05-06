@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Edit Expert Advisor - IoT Smart Farming</title>
+    {% include './includes/header.html' %}
+</head>
+
+<body>
+    {% include './includes/navbar-admin.html' %}
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading" style="padding-top: 40px;">
+                    <h2 class="text-dark">Expert Advisor</h2>
+                </div>
+                <form method="post">
+                    <div class="mb-3">
+                        <input type="text" name="id" class="d-none" value="{{ pkid }}">
+                        <label class="form-label" for="name">Name</label>
+                        <input class="form-control" type="text" name="name" value="{{ name }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control item" type="email" placeholder="example@test.com" name="email" value="{{ email }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Username</label>
+                        <input class="form-control" type="text" name="username" value="{{ username }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="password" name="password" value="{{ password }}">
+                    </div>
+                    <button class="btn btn-success border rounded-pill btn-block" type="submit" style="width: 100%;">Save</button>
+                    <hr>
+                    <a class="btn btn-secondary border rounded-pill btn-block" href="/listexpertadvisor" style="width: 100%;">Back</a>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark" style="padding-top: 0px;">
+        <div class="footer-copyright" style="margin-top: 0px;">
+            <p>© 2021 IoT Smart Farming</p>
+        </div>
+    </footer>
+    {% include './includes/footer.html' %}
+</body>
+
+</html>

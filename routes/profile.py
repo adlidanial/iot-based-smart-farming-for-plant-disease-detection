@@ -28,9 +28,14 @@ class Profile:
             data = cursor.fetchall()
         
         for row in data:
-            fullname = row[1]
-            email = row[2]
-            username = row[3]
+            if session['roles'] == 1:
+                fullname = row[1]
+                email = row[2]
+                username = row[3]
+            else:
+                fullname = row[2]
+                email = row[3]
+                username = row[4]
 
         if request.method == 'POST':
             if(request.form['btnSubmit'] == "profile"):

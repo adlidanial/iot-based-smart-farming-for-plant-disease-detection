@@ -13,3 +13,7 @@ from .livechat import *
 from .loghistory import *
 from .profile import *
 from .dashboard import *
+from .addexpertadvisor import *
+from .listfarmer import *
+from .listexpertadvisor import *
+from .listplantdisease import *
