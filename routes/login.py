@@ -2,7 +2,7 @@ from flask import (render_template, Flask, request, redirect, url_for, session)
 from flaskext.mysql import MySQL
 from . import routes
 from routes.connect import HOST, USER, PASSWORD, DB
-
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
@@ -21,24 +21,45 @@ class Login:
     
     def verifyLogin(self):
         cursor = mysql.get_db().cursor()
-        cursor.execute('SELECT * FROM farmer WHERE USERNAME = %s AND PASSWORD = %s', (self.__username, self.__password))
+        cursor.execute('SELECT * FROM farmer WHERE USERNAME = %s', (self.__username))
         farmer = cursor.fetchall()
 
-        cursor.execute('SELECT * FROM admin WHERE USERNAME = %s AND PASSWORD = %s', (self.__username, self.__password))
+        cursor.execute('SELECT * FROM admin WHERE USERNAME = %s', (self.__username))
         admin = cursor.fetchall()
 
-        cursor.execute('SELECT * FROM expertadvisor WHERE USERNAME = %s AND PASSWORD = %s', (self.__username, self.__password))
+        cursor.execute('SELECT * FROM expertadvisor WHERE USERNAME = %s', (self.__username))
         expadv = cursor.fetchall()
 
         if farmer:
-            result = 1
             data = farmer
+            for row in data:
+                hash_password = row[4]
+
+            if sha256_crypt.verify(self.__password, hash_password):
+                result = 1
+            else:
+                result = 0
+                data = 0
         elif admin:
-            result = 2
             data = admin
+            for row in data:
+                hash_password = row[4]
+
+            if sha256_crypt.verify(self.__password, hash_password):
+                result = 2
+            else:
+                result = 0
+                data = 0
         elif expadv:
-            result = 3
             data = expadv
+            for row in data:
+                hash_password = row[5]
+            
+            if sha256_crypt.verify(self.__password, hash_password):
+                result = 3
+            else:
+                result = 0
+                data = 0
         else:
             result = 0
             data = 0

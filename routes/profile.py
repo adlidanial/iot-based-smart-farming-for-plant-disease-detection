@@ -2,7 +2,7 @@ from flask import (render_template, Flask, request, redirect, url_for, session)
 from flaskext.mysql import MySQL
 from . import routes
 from routes.connect import HOST, USER, PASSWORD, DB
-
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
@@ -57,11 +57,12 @@ class Profile:
                 repass = request.form['repass']
 
                 if(password == repass):
+                    hash_password = sha256_crypt.encrypt(password)
                     cursor = mysql.get_db().cursor()
                     if session['roles'] == 1:
-                        cursor.execute('UPDATE farmer SET PASSWORD = %s WHERE PK_ID = %s', (password, session['id']))
+                        cursor.execute('UPDATE farmer SET PASSWORD = %s WHERE PK_ID = %s', (hash_password, session['id']))
                     else:
-                        cursor.execute('UPDATE expertadvisor SET PASSWORD = %s WHERE PK_ID = %s', (password, session['id']))
+                        cursor.execute('UPDATE expertadvisor SET PASSWORD = %s WHERE PK_ID = %s', (hash_password, session['id']))
                     cursor.connection.commit()
                     successProfile = True
                 else:

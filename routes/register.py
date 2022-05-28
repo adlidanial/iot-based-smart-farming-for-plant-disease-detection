@@ -2,6 +2,7 @@ from flask import (render_template, Flask, request, redirect, url_for)
 from flaskext.mysql import MySQL
 from . import routes
 from routes.connect import HOST, USER, PASSWORD, DB
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
@@ -55,8 +56,9 @@ class Register:
                     erremail, errusername = val.verifyRegister()
 
                     if(not(erremail) and not(errusername)):
+                        hash_password = sha256_crypt.encrypt(password)
                         cursor = mysql.get_db().cursor()
-                        cursor.execute('INSERT INTO farmer (FULL_NAME, EMAIL, USERNAME, PASSWORD) VALUES (%s, %s, %s, %s)', (name, email, username, password))
+                        cursor.execute('INSERT INTO farmer (FULL_NAME, EMAIL, USERNAME, PASSWORD) VALUES (%s, %s, %s, %s)', (name, email, username, hash_password))
                         cursor.connection.commit()
                         msgSuccess = True
                         return render_template('registration.html', msgSuccess = msgSuccess)

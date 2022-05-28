@@ -18,14 +18,17 @@
                 </div>
                 <div class="block-content">
                     <div class="row">
-                        <div class="col-xxl-4"><iframe src ="http://192.168.250.45/capture" width="400" height="700"></iframe></div>
+                        <div class="col-xxl-4">
+                            <!-- <iframe src ="http://192.168.250.45/capture" width="400" height="700"></iframe> -->
+                            <img src="{{ url_for('static', filename=imgsrc) }}" alt="plant-disease" width="100%">
+                        </div>
                         <div class="col-xxl-8">
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="mb-0">Plant Disease</h5>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                    <p class="card-text">{{ prediction }}</p>
                                 </div>
                             </div><br>
                             <div class="card">

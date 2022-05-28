@@ -28,18 +28,23 @@
                                     <thead>
                                       <tr>
                                         <th>No.</th>
+                                        <th>Plant Name</th>
                                         <th>Disease Name</th>
                                         <th>Picture</th>
-                                        <th></th>
+                                        <th>Action</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       {% for row in data: %}
                                       <tr>
                                         <td>{{ loop.index }}</td>
-                                        <td>{{ row[6] }}</td>
-                                        <td>{{ row[3] }}</td>
-                                        <td></td>
+                                        <td>{{ row[6]|capitalize }}</td>
+                                        <td>{{ row[7]|capitalize }}</td>
+                                        <td><a class="link-primary" href="{{ url_for('static', filename='/uploads/'+row[3]) }}" target="_blank"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></td>
+                                        <td>
+                                          <a class="btn btn-secondary" href=""><i class="fa fa-info" aria-hidden="true"></i></a>
+                                          <a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        </td>
                                       </tr>
                                       {% endfor %}
                                     </tbody>
