@@ -1,1 +1,5 @@
 # IoT Based Smart Farming for Plant Disease Detection
+
+IoT Based Smart Farming For Plant Disease Detection is a system based on the Internet of Things (IoT) and a Deep Learning method to develop the classification of plant diseases by using image processing. The system provides an image capture module and pre-process by using Tensorflow to show the result of plant disease. The IoT-based solution integrated with Artificial Intelligence (AI) has the potential to help farmers identify the disease in advance and make a better decision on how to treat it.
+
+The development of IoT Based Smart Farming For Plant Disease Detection by using Python as a programming language, Flask as a web framework written in Python and these project was running on Anaconda environment. The IoT device called ESP32-Camera to capture the disease of leaf and the system showing the image captured. The Arduino software has been introduced to setup the connection between ESP-32 Camera with IoT-based system. The classification model using Tensorflow will be determined from the image either the plant disease or not.
